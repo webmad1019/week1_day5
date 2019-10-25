@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Objects</title>
+</head>
+<body>
+  <script>
+    
+    //Creación de un objeto sencillo
+    const person = {
+      name: "Teo",
+      age: 29,
+      hobbies: ["Jugar al rol", "Ver series", "Hacer fotos"],   //Array de hobbies
+      subscriptions: [
+        {service: "Netflix", price: 10.99},
+        {service: "HBO", price: 8.99}
+      ],                                              //Array de objetos.
+
+      present: function() {
+        alert(`Hola, mi nombre es ${this.name}`)
+      },
+
+      birthday: function() {
+        this.age += 1
+        console.log(this.age)
+      }
+    }
+
+    //Getters
+    //Notación punto
+    // alert(person.age)
+    
+    //Notación corchetes
+    const cosaABuscar = "age"
+    // alert( person[cosaABuscar]  )
+  
+
+    // person.present()
+    person.birthday()
+    
+    person.hobbies.forEach( hobby => console.log(hobby))
+    
+    for(let i = 0; i < person.subscriptions.length; i++) {
+      const service = person.subscriptions[i].service
+      console.log(service)
+    }
+    // const service = person.subscriptions[0].service
+
+    // console.log(service)
+
+    person.hobbies
+
+
+    //Setter
+
+    person.age = 30
+    person["age"] = 30
+
+    //Added
+    person.married = true
+    person.hobbies.push("Programar")
+
+
+    //In operator
+    console.log("hobbies" in person)
+
+    //Delete a property
+
+    delete person.hobbies
+
+    //Keys y values
+
+
+    console.log(Object.keys(person))
+    console.log(Object.values(person))
+
+    //El bucle for-in reccorre las propiedades de un objeto
+
+    for (let key in person) {
+      console.log(person[key])
+    }
+
+    
+  </script>
+</body>
+</html>

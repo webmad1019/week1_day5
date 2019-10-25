@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Classes</title>
+</head>
+<body>
+  <script>
+  
+    class Person {
+      constructor(name, age, height) {
+        this._name = name
+        this._age = age
+        this._height = height
+        this._arms = 2
+        this._hobbies = []
+      }
+
+      present() {
+        console.log(`Mi nombre es ${this._name}` )
+      }
+
+    }
+
+    const person1 = new Person("Teo", 29, 1.72)
+    const person2 = new Person("Luis", 24, 1.76)
+    const person3 = new Person("María", undefined, 1.76)
+
+    console.log(person1)
+    console.log(person2)
+    console.log(person3)
+
+    person2.present()
+
+
+    class Document {
+      constructor(num, date, client) {
+        this._num = num
+        this._date = date
+        this._client = client
+      }
+
+      showGeneralInfo() {
+        alert(`Document num.${this._num}, on date ${this._date} from client: ${this._client}`)
+      }
+
+    }
+
+    const document1 = new Document(1234, "24/12/1990", "IBIS")
+    document1.showGeneralInfo()
+    console.log(document1)
+
+    class Invoice extends Document {
+
+      constructor(num, date, client, subtotal, tax, currency) {
+        super(num, date, client)
+        this._subtotal = subtotal
+        this._tax = tax
+        this._currency = currency
+        this._type = "Invoice"
+      }
+    }
+
+    const invoice1 = new Invoice(1231, "10/07/1990", "ZARA", 9.99, 21, "€")
+    console.log(invoice1._client)
+
+    class DeliveryNote extends Document {
+      constructor(num, date, client, time){
+        super(num, date, client)
+        this._time = time
+      }
+    }
+  </script>
+</body>
+</html>
